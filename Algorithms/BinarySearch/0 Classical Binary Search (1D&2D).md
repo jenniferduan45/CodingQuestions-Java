@@ -67,8 +67,8 @@ public int[] matrixBinarySearch(int[][] matrix, int target) {
    int right = row * column - 1;
    while (left <= right) {
       int middle = left + (right - left) / 2;
-      rowIndex = middle / column;
-      columnIndex = middle % column;
+      int rowIndex = middle / column;
+      int columnIndex = middle % column;
       if (target == matrix[rowIndex][columnIndex]) {
          result[0] = rowIndex;
          result[1] = columnIndex;
