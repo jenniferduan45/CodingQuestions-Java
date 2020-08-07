@@ -21,6 +21,6 @@ Corner Cases
 ### Code
 ```java
 public int closest(int[] array, int target) {
-  if (
+  if (array.length
 }
 ```
