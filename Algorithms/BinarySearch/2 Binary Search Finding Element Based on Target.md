@@ -63,3 +63,15 @@ Examples
 - Repeat step 2 until `result.length == k`
 
 ### Code
+```java
+public int[] kClosest(int[] array, int target, int k) {
+  int left = 0;
+  int right = array.length - 1;
+  while (left < right - 1) {
+    int middle = left + (right - left) / 2;
+    if (target == array[middle]) {
+      
+    }
+  }
+}
+```
