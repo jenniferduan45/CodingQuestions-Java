@@ -56,8 +56,29 @@ Examples
 - Details:
   - Use `count[i]` to store the length of the longest ascending subsequence from 0-th element to i-th element
   - Base case: `count[0] = 1` 
-  - Induction rule: if there exists `array[j] > array[j - 1]`, then `count[j] = count[j - 1] + 1`; else, `count[j] = 1`
-  - Update `maxNum`, the global maximum length of ascending subarray, when `count[j] > maxNum`
+  - Induction rule: if there exists j-th element between `[0, i)` such that `array[i] > array[j]`, then `count[i] = count[j] + 1`; else, `count[i] = 1`
+  - Update `maxNum`, the global maximum length of ascending subarray, when `count[i] > maxNum`
+
+### Code
+```java
+public int longest(int[] array) {
+  if (array.length == 0) return 0;
+  int[] count = new int[array.length];
+  count[0] = 1;
+  int maxNum = count[0];
+  for (int i = 1; i < array.length; i ++) {
+    count[i] = 1;
+    for (int j = 0; j < i; j ++) {
+      if (array[i] > array[j]) {
+        //Important: ensure that we get the longest subsequence
+        count[i] = Math.max(count[i], count[j] + 1);
+      } 
+    }
+    maxNum = Math.max(maxNum, count[i]);
+  }
+  return maxNum;
+}
+```
 
 ---
 ## 1.3* Print an Arbitrary Longest Ascending Subsequence
