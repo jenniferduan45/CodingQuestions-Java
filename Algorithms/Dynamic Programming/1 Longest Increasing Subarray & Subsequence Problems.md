@@ -41,6 +41,23 @@ public int longest(int[] array) {
 - Space Complexity: O(n)
 ---
 ## 1.2 Longest Ascending Subsequence
+Given an array A[0]...A[n-1] of integers, find out the length of the longest ascending subsequence.
+
+Assumptions
+<br>A is not null
+
+Examples
+<br>Input: A = {5, 2, 6, 3, 4, 7, 5}
+<br>Output: 4, because [2, 3, 4, 5] is the longest ascending subsequence.
+
+### Analysis
+- High level: using DP
+- While subarray must be consecutive elements, subsequence can be non-consecutive
+- Details:
+  - Use `count[i]` to store the length of the longest ascending subsequence from 0-th element to i-th element
+  - Base case: `count[0] = 1` 
+  - Induction rule: if there exists `array[j] > array[j - 1]`, then `count[j] = count[j - 1] + 1`; else, `count[j] = 1`
+  - Update `maxNum`, the global maximum length of ascending subarray, when `count[j] > maxNum`
 
 ---
 ## 1.3* Print an Arbitrary Longest Ascending Subsequence
