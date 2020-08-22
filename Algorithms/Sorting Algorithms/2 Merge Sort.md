@@ -57,3 +57,7 @@ public int[] merge(int[] one, int[] two) {
   return result;
 }
 ```
+
+### Complexity
+- Time Complexity: O(n log n)
+- Space Complexity: O(n)
